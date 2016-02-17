@@ -9,3 +9,5 @@ set hive.exec.parallel=true;
 set hive.exec.reducers.max=2000;
 set hive.stats.autogather=true;
 set hive.optimize.sort.dynamic.partition=true;
+set hive.default.fileformat=TextFile;
+set hive.default.fileformat.managed=TextFile;

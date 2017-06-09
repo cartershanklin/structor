@@ -40,6 +40,7 @@ public class GenTable extends Configured implements Tool {
         options.addOption("t","table", true, "table");
         options.addOption("d","dir", true, "dir");
         options.addOption("p", "parallel", true, "parallel");
+        options.addOption("c", "config", true, "config");
         CommandLine line = parser.parse(options, remainingArgs);
 
         if(!(line.hasOption("scale") && line.hasOption("dir"))) {
@@ -75,6 +76,10 @@ public class GenTable extends Configured implements Tool {
                     dsuri.getPort(),dsuri.getPath(), 
                     dsuri.getQuery(),"dsdgen");
         Configuration conf = getConf();
+        if(line.hasOption("config"))  {
+          Path path = new Path(line.getOptionValue("config"));
+          conf.addResource(path);
+        }
         conf.setInt("mapred.task.timeout",0);
         conf.setInt("mapreduce.task.timeout",0);
         conf.setBoolean("mapreduce.map.output.compress", true);

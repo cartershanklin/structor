@@ -50,7 +50,7 @@ hdfs dfs -mkdir -p ${DIR}
 hdfs dfs -ls ${DIR}/${SCALE} > /dev/null
 if [ $? -ne 0 ]; then
 	echo "Generating data at scale factor $SCALE."
-	(cd target; hadoop jar target/*.jar -d ${DIR}/${SCALE}/ -s ${SCALE})
+	(cd target; hadoop jar target/*.jar -d ${DIR}/${SCALE}/ -s ${SCALE} -c ../settings/config.xml)
 fi
 hdfs dfs -ls ${DIR}/${SCALE} > /dev/null
 if [ $? -ne 0 ]; then

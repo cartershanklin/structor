@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
+<property><name>mapreduce.map.memory.mb</name><value>1024</value></property>
+<property><name>mapreduce.reduce.memory.mb</name><value>1024</value></property>
+</configuration>
